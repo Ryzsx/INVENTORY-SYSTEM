@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #66CC66; /* lighter background to complement darker mint green */
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.login-container {
+  width: 400px;
+  margin: 80px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  font-size: 18px;
+  color: #66CC66; /* default darker mint green */
+  text-decoration: none;
+  background-color: transparent; /* no background */
+  border-bottom: 2px solid transparent; /* no underline by default */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab:hover {
+  color: #4CAF50; /* darker mint green for hover */
+}
+
+.tab.active {
+  background-color: transparent; /* no background on active tab */
+  color: #4CAF50; /* active tab color */
+  font-weight: bold;
+  border-bottom: 2px solid #4CAF50; /* underline when active */
+}
+
+/* Form Box */
+.form-box {
+  background: #ffffff;
+  padding: 20px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+h3 {
+  text-align: left;
+  margin-bottom: 4px;
+  color: #66CC66;
+}
+
+h4 {
+  font-size: 18px;
+  color: #66CC66;
+}
+
+.reset-group {
+  display: flex;   
+  color: #66CC66;        
+  align-items: center;     
+  gap: 8px;                 /* Add space between icon and text */
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.reset-group i {           /* Mint green color */
+  font-size: 23px; 
+  color: #66CC66;          /* Icon size */
+}
+
+.reset-group p {
+  font-size: 13px;
+  margin: 0;                /* Remove default margin */
+}
+
+
+/* Basic Styles for the Input Group */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+/* Icon Styles */
+.input-group i {
+  position: absolute;
+  left: 12px; /* Positioning the icon inside the input field */
+  top: 70%; /* Vertically center the icon */
+  transform: translateY(-50%); /* Adjust the positioning to truly center */
+  color: #66CC66; /* Mint green color */
+  font-size: 18px; /* Icon size */
+}
+
+/* Label Styles */
+.input-group label {
+  position: absolute;
+  top: 75%; /* Initially center the label in the middle of the input */
+  left: 40px; /* Adjust to prevent overlap with the icon */
+  background-color: white; /* To cover any potential overlap */
+  padding: 0 5px; /* Slight padding around the label for better visual effect */
+  font-size: 14px;
+  color: #66CC66; /* Mint green color */
+  font-weight: bold; /* To make it stand out */
+  transform: translateY(-50%); /* Vertically center the label */
+  transition: 0.3s ease; /* Smooth transition when focus occurs */
+}
+
+/* Input Styles */
+.input-group input {
+  width: 100%;
+  padding: 20px 12px 12px 40px; /* Adding padding on the left for the icon */
+  font-size: 16px;
+  color: #000000;
+  background: #e9f7e1; /* Very light green background */
+  border: 2px solid transparent; /* Initially transparent border */
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box; /* Ensures the padding doesn't extend the element's width */
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Shorter transition time */
+}
+
+/* On input focus */
+.input-group input:focus {
+  border: 2px solid #33cc33; /* Darker green border on focus */
+  box-shadow: 0 0 8px rgba(51, 204, 51, 0.5); /* Optional: Adds glow effect on focus */
+}
+
+.input-group .toggle-password {
+  left: 90%; /* Eye icon positioned on the right */
+  font-size: 18px; /* Icon size */
+  cursor: pointer;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  width: 100%;
+  padding: 12px;
+  background-color: #66CC66; /* White background for Google button */
+  border: 2px solid #66CC66; /* Mint green border */
+  border-radius: 8px;
+  color: #ffffff; /* Black text color */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.google-btn i {
+  left: 33%;
+  top:79%;
+  font-size: 22px;
+  color: #ffffff;
+}
+.google-icon {
+  left: 34%;
+  top: 7px;
+  font-size: 22px;
+  color: #ffffff; 
+
+}
+.google-btn:hover {
+  background-color: #4CAF50;
+}
+
+/* Forgot Password link */
+.bottom-links {
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.bottom-links a {
+  color: #66CC66; /* darker mint green */
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.bottom-links a:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #66CC66; /* darker mint green */
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #4CAF50; /* even darker mint green for hover */
+}
+
+.option-log {
+  display: flex;
+  flex-direction: row; /* Stack vertically */
+  color: #000000;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  margin-top: 20px; /* Optional spacing */
+  font-size: 14px;
+}
+
+.option-log a {
+  color: #66CC66;
+}
+
+.option-log a:hover {
+  text-decoration: underline;
+}
