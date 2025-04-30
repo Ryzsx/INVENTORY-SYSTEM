@@ -38,35 +38,34 @@ document.getElementById('signin-submit')?.addEventListener('click', async functi
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
 
-  function clearField(input, type = 'password') {
-    input.value = '';
-    input.type = 'password'; // Temporarily switch to text
-    setTimeout(() => input.type = type, 10); // Revert to original type
-  }
-
   function showInputError(message) {
+    // Show message in email input
     emailInput.value = message;
     emailInput.style.color = "red";
     emailInput.style.border = "2px solid red";
     passwordInput.style.border = "2px solid red";
 
-    // Clear both fields and break auto-fill
-    clearField(emailInput, 'email');
-    clearField(passwordInput, 'password');
+    // Clear password field
+    passwordInput.value = '';
+    passwordInput.type = 'text'; // Break autofill
+    setTimeout(() => passwordInput.type = 'password', 10);
 
-    function clearError() {
+    // Set email to readOnly to lock message
+    emailInput.readOnly = true;
+
+    // Restore inputs on focus
+    emailInput.addEventListener('focus', function handler() {
+      emailInput.readOnly = false;
       emailInput.value = '';
-      passwordInput.value = '';
       emailInput.style.color = '';
       emailInput.style.border = '';
+      emailInput.removeEventListener('focus', handler);
+    });
+
+    passwordInput.addEventListener('focus', function handler() {
       passwordInput.style.border = '';
-
-      emailInput.removeEventListener('input', clearError);
-      passwordInput.removeEventListener('input', clearError);
-    }
-
-    emailInput.addEventListener('input', clearError);
-    passwordInput.addEventListener('input', clearError);
+      passwordInput.removeEventListener('focus', handler);
+    });
   }
 
   if (!email || !password) {
@@ -86,7 +85,7 @@ document.getElementById('signin-submit')?.addEventListener('click', async functi
     await signInWithEmailAndPassword(auth, email, password);
     emailInput.value = '';
     passwordInput.value = '';
-    window.location.href = "../dashboard/home.html";
+    window.location.href = "../loginform/dashboard/home.html";
   } catch (error) {
     console.error("Login error:", error);
     const msg = error.code === 'auth/invalid-email'
@@ -103,20 +102,42 @@ document.getElementById('signin-submit')?.addEventListener('click', async functi
 // Password Reset
 document.getElementById('reset-submit')?.addEventListener('click', function(event) {
   event.preventDefault();
-  const email = document.getElementById('reset-email').value;
+  const emailInput = document.getElementById('reset-email');
+  const email = emailInput.value.trim();
 
-  if (email) {
-    sendPasswordResetEmail(auth, email)
-      .then(() => 
-        alert("Reset email sent!"))
-      .catch((error) => 
-        alert("Error: " + error.message));
+  function clearError(input) {
+    input.addEventListener('focus', function handler() {
+      input.style.color = '';
+      input.style.border = '';
+      input.value = '';  // Clear the error message when clicked
+      input.removeEventListener('focus', handler);
+    });
+  }
+
+  function showEmailError(message) {
+    emailInput.value = message;
+    emailInput.style.color = "red";
+    emailInput.style.border = "2px solid red";
+
+    // Add clear error handler
+    clearError(emailInput);
   }
 
   if (!email) {
-    return alert("Please enter your email.");
+    showEmailError("Please enter your email.");
+    return;
   }
+
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      alert("Reset email sent!");
+      emailInput.value = ''; // Clear input after email sent
+    })
+    .catch((error) => {
+      showEmailError("Invalid email");
+    });
 });
+
 
 // Email Sign-Up
 document.getElementById('signup-submit')?.addEventListener('click', async function (event) {
@@ -230,7 +251,7 @@ document.getElementById('signup-submit')?.addEventListener('click', async functi
         showEmailError("Please enter a valid email address.");
         break;
       case 'auth/weak-password':
-        showGeneralError("Password should be at least 8 characters.");
+        showGeneralError("Password should be at least 6 characters.");
         break;
       default:
         showGeneralError("Sign-up failed. Please try again.");
@@ -238,20 +259,38 @@ document.getElementById('signup-submit')?.addEventListener('click', async functi
   }
 });
 
-// Google Sign-In
-document.getElementById('google-signin-btn')?.addEventListener('click', function(event) {
-  event.preventDefault();
-
-  provider.setCustomParameters({ prompt: 'select_account' }); // force picker
-
+// Google Sign-In and Sign-Up
+function handleGoogleAuth() {
   signInWithPopup(auth, provider)
     .then((result) => {
-      window.location.href = "../dashboard/home.html";
+      const user = result.user;
+
+      // Optional: Check if the user is new
+      if (result._tokenResponse?.isNewUser) {
+        console.log("New user signed up with Google:", user.email);
+      } else {
+        console.log("Returning user signed in:", user.email);
+      }
+
+      window.location.href = "../loginform/dashboard/home.html";
     })
     .catch((error) => {
+      console.error("Google sign-in error:", error);
       alert("Google sign-in failed: " + error.message);
     });
+}
+
+// Attach to both buttons (if you have two buttons)
+document.getElementById('google-signin-btn')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  handleGoogleAuth();
 });
+
+document.getElementById('google-signup-btn')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  handleGoogleAuth();
+});
+
 
 // Toggle between sign-in and sign-up forms
 document.getElementById('signin-tab').addEventListener('click', showSignIn);

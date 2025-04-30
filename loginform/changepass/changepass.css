@@ -1,0 +1,111 @@
+/* changepass.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #66CC66; /* light mint green */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Container */
+  .login-container {
+    width: 400px;
+    margin: 80px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Form Box */
+  .form-box {
+    background: #ffffff;
+    padding: 20px 10px;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  /* Headings */
+  h2 {
+    color: #66CC66;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  h3 {
+    text-align: left;
+    margin-bottom: 4px;
+    color: #66CC66;
+    font-size: 16px;
+  }
+  
+  /* Input Group */
+  .input-group {
+    position: relative;
+    margin-bottom: 25px;
+  }
+  
+  .input-group i {
+    position: absolute;
+    left: 12px;
+    top: 70%;
+    transform: translateY(-50%);
+    color: #66CC66;
+    font-size: 18px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 20px 12px 12px 40px;
+    font-size: 16px;
+    color: #000000;
+    background: #e9f7e1;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .input-group input:focus {
+    border: 2px solid #33cc33;
+    box-shadow: 0 0 8px rgba(51, 204, 51, 0.5);
+  }
+  
+  /* Button */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #66CC66;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #4CAF50;
+  }
+  
+  /* Bottom Link */
+  .option-log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #000000;
+  }
+  
+  .option-log a {
+    color: #66CC66;
+    margin-left: 5px;
+    text-decoration: none;
+  }
+  
+  .option-log a:hover {
+    text-decoration: underline;
+  }
+  

@@ -64,26 +64,6 @@ h4 {
   color: #66CC66;
 }
 
-.reset-group {
-  display: flex;   
-  color: #66CC66;        
-  align-items: center;     
-  gap: 8px;                 /* Add space between icon and text */
-  position: relative;
-  margin-bottom: 25px;
-}
-
-.reset-group i {           /* Mint green color */
-  font-size: 23px; 
-  color: #66CC66;          /* Icon size */
-}
-
-.reset-group p {
-  font-size: 13px;
-  margin: 0;                /* Remove default margin */
-}
-
-
 /* Basic Styles for the Input Group */
 .input-group {
   position: relative;

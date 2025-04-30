@@ -22,7 +22,6 @@
         <h3>Email</h3>
         <i class="fas fa-user"></i>
         <input type="email" id="signin-email" placeholder="Email" required>
-        <p id="email-error" class="error-message"></p>
       </div>
       
       <div class="input-group">
@@ -33,7 +32,7 @@
       </div>
 
       <div class="bottom-links">
-        <a href="../changepass/changepass.html" id="reset-pass">Forgot Password?</a> 
+        <a href="../loginform/changepass/changepass.html" id="reset-pass">Forgot Password?</a> 
       </div>
 
       <button type="submit" id="signin-submit">SIGN IN</button>
@@ -63,15 +62,15 @@
       <div class="input-group">
         <h3>Password</h3>
         <i class="fas fa-lock"></i>
-        <input type="password" id="signup-password" placeholder="Password" required>
-        <i class="fa-solid fa-eye-slash toggle-password" toggle="#signup-password"></i>
+        <input type="text" id="signup-password" placeholder="Password" required>
+        <i class="fa-solid fa-eye toggle-password" toggle="#signup-password"></i>
       </div>
 
       <div class="input-group">
         <h3>Confirm Password</h3>
         <i class="fas fa-lock"></i>
-        <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
-        <i class="fa-solid fa-eye-slash toggle-password" toggle="#signup-confirm-password"></i>
+        <input type="text" id="signup-confirm-password" placeholder="Confirm Password" required>
+        <i class="fa-solid fa-eye toggle-password" toggle="#signup-confirm-password"></i>
       </div>
 
       <button type="submit" id="signup-submit">SIGN UP</button>
@@ -91,7 +90,7 @@
     </form>
   </div>
 
-  <script type="module" src="register.js"></script>
+  <script type="module" src="../loginform/register/register.js"></script>
 
 </body>
 </html>
