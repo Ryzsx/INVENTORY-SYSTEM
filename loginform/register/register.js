@@ -261,6 +261,19 @@ document.getElementById('signup-submit')?.addEventListener('click', async functi
 
 // Google Sign-In and Sign-Up
 function handleGoogleAuth() {
+  // Disable both Google sign-in and sign-up buttons during the sign-in attempt to prevent multiple clicks
+  const googleSigninButton = document.getElementById('google-signin-btn');
+  const googleSignupButton = document.getElementById('google-signup-btn');
+  
+  googleSigninButton.disabled = true;
+  googleSignupButton.disabled = true;
+
+  // Reset the provider to handle cases when the user cancels the selection
+  provider.setCustomParameters({
+    prompt: 'select_account'  // Forces the Google account selector to always appear
+  });
+
+  // Start the Google sign-in popup
   signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
@@ -272,15 +285,31 @@ function handleGoogleAuth() {
         console.log("Returning user signed in:", user.email);
       }
 
+      // Redirect to the dashboard on successful sign-in
       window.location.href = "../loginform/dashboard/home.html";
     })
     .catch((error) => {
+      // Reset the sign-in/signup buttons if there is an error
+      const googleSigninButton = document.getElementById('google-signin-btn');
+      const googleSignupButton = document.getElementById('google-signup-btn');
+      googleSigninButton.disabled = false;
+      googleSignupButton.disabled = false;
+
       console.error("Google sign-in error:", error);
+
+      // Specific check for canceled popup request error
+      if (error.code === 'auth/cancelled-popup-request') {
+        console.log('User canceled the sign-in/sign-up process.');
+        // Allow retry after cancellation
+        return;
+      }
+
+      // Show an error message and re-enable buttons so user can retry
       alert("Google sign-in failed: " + error.message);
     });
 }
 
-// Attach to both buttons (if you have two buttons)
+// Attach event listeners to both buttons (sign-in and sign-up)
 document.getElementById('google-signin-btn')?.addEventListener('click', (e) => {
   e.preventDefault();
   handleGoogleAuth();
