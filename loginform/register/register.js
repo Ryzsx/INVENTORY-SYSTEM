@@ -260,63 +260,59 @@ document.getElementById('signup-submit')?.addEventListener('click', async functi
 });
 
 // Google Sign-In and Sign-Up
+let googleAuthMode = ''; // 'signin' or 'signup'
+
 function handleGoogleAuth() {
-  // Disable both Google sign-in and sign-up buttons during the sign-in attempt to prevent multiple clicks
   const googleSigninButton = document.getElementById('google-signin-btn');
   const googleSignupButton = document.getElementById('google-signup-btn');
-  
+
+  // Disable buttons during authentication
   googleSigninButton.disabled = true;
   googleSignupButton.disabled = true;
 
-  // Reset the provider to handle cases when the user cancels the selection
-  provider.setCustomParameters({
-    prompt: 'select_account'  // Forces the Google account selector to always appear
-  });
+  // Always show Google account selector
+  provider.setCustomParameters({ prompt: 'select_account' });
 
-  // Start the Google sign-in popup
   signInWithPopup(auth, provider)
     .then((result) => {
-      const user = result.user;
+      const isNewUser = result._tokenResponse?.isNewUser;
 
-      // Optional: Check if the user is new
-      if (result._tokenResponse?.isNewUser) {
-        console.log("New user signed up with Google:", user.email);
-      } else {
-        console.log("Returning user signed in:", user.email);
+      // Validate based on mode
+      if (googleAuthMode === 'signup' && !isNewUser) {
+        alert("This Google account is already registered. Please sign in instead.");
+        return auth.signOut(); // Sign out and prevent redirect
       }
 
-      // Redirect to the dashboard on successful sign-in
+      if (googleAuthMode === 'signin' && isNewUser) {
+        alert("This Google account is not registered. Please sign up first.");
+        return auth.signOut(); // Sign out and prevent redirect
+      }
+
+      // Valid sign in or sign up
       window.location.href = "../loginform/dashboard/home.html";
     })
     .catch((error) => {
-      // Reset the sign-in/signup buttons if there is an error
-      const googleSigninButton = document.getElementById('google-signin-btn');
-      const googleSignupButton = document.getElementById('google-signup-btn');
+      if (error.code !== 'auth/cancelled-popup-request' && error.code !== 'auth/popup-closed-by-user') {
+        alert("Google sign-in failed: " + error.message);
+      }
+    })
+    .finally(() => {
+      // Re-enable buttons regardless of outcome
       googleSigninButton.disabled = false;
       googleSignupButton.disabled = false;
-
-      console.error("Google sign-in error:", error);
-
-      // Specific check for canceled popup request error
-      if (error.code === 'auth/cancelled-popup-request') {
-        console.log('User canceled the sign-in/sign-up process.');
-        // Allow retry after cancellation
-        return;
-      }
-
-      // Show an error message and re-enable buttons so user can retry
-      alert("Google sign-in failed: " + error.message);
     });
 }
 
-// Attach event listeners to both buttons (sign-in and sign-up)
+// Attach event listeners
 document.getElementById('google-signin-btn')?.addEventListener('click', (e) => {
   e.preventDefault();
+  googleAuthMode = 'signin';
   handleGoogleAuth();
 });
 
 document.getElementById('google-signup-btn')?.addEventListener('click', (e) => {
   e.preventDefault();
+  googleAuthMode = 'signup';
   handleGoogleAuth();
 });
 

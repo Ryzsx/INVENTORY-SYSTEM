@@ -1,0 +1,224 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    width: 220px;
+    background-color: #2c3e50;
+    height: 100vh;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  
+  .sidebar h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    padding: 0 10px;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    position: relative; /* To allow control of the background color */
+  }
+  
+  /* Hover effect for sidebar links */
+  .sidebar a:hover {
+    background-color: #66CC66; /* Mint green */
+    color: #2c3e50;
+  }
+  
+  /* Active state for sidebar links */
+  .sidebar a.active {
+    background-color: #66CC66; /* Mint green */
+    color: #2c3e50;
+  }
+  
+  /* Icon styles */
+  .sidebar a i {
+    min-width: 20px;
+    text-align: center;
+  }
+  
+  /* Main content area */
+  .section {
+    display: none;
+  }
+  
+  .active-section {
+    display: block;
+  }
+  
+  /* Dashboard section style */
+  #dashboard.section {
+    margin-left: 220px;
+    padding: 30px;
+    width: calc(100% - 220px);
+    overflow-y: auto;
+  }
+  
+  #dashboard h2,
+  #dashboard p {
+    margin-bottom: 20px;
+  }
+  
+  /* Summary cards */
+  .summary-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  
+  .card {
+    background-color: #66CC66;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .card h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .card p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Table styles */
+  .table-container h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table-container th, .table-container td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .table-container th {
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  .table-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* View Service Records styles */
+#viewRecords.section {
+    margin-left: 220px;
+    padding: 30px;
+    width: calc(100% - 220px);
+    overflow-y: auto;
+  }
+  
+  #viewRecords h2,
+  #viewRecords p {
+    margin-bottom: 20px;
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .search-container i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+  }
+  
+  .search-container input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .table-container h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table-container th, .table-container td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .table-container th {
+    background-color: #66CC66;
+    color: white;
+  }
+  
+  .table-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .service-dropdown {
+    width: 100%;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  #totalAmount {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #2c3e50;
+  }
+  
