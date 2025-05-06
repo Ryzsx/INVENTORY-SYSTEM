@@ -1,11 +1,22 @@
-function showSection(id, el) {
-    document.querySelectorAll('.section').forEach(section => {
-      section.classList.remove('active-section');
-    });
-    document.getElementById(id).classList.add('active-section');
+function showSection(sectionId, linkElement) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.classList.remove('active-section'));
 
-    document.querySelectorAll('.sidebar a').forEach(link => {
-      link.classList.remove('active');
-    });
-    el.classList.add('active');
-  }
+    // Remove 'active' class from all sidebar links
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+    sidebarLinks.forEach(link => link.classList.remove('active'));
+
+    // Show the clicked section
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.classList.add('active-section');
+    } else {
+        console.error(`Section with id '${sectionId}' not found.`);
+    }
+
+    // Add 'active' class to the clicked link
+    linkElement.classList.add('active');
+}
+
+// Make sure this function is called for the correct section (Add Records).
