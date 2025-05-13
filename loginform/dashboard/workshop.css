@@ -1,73 +1,49 @@
-/* Workshop Management section styling */
 #addServices {
     padding: 30px;
     background-color: #f4f4f4;
-    margin-left: 220px; /* Align with the sidebar */
+    margin-left: 220px;
     width: calc(100% - 220px);
     overflow-y: auto;
   }
   
-  /* Heading styles */
-  #addServices h2,
-  #addServices h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-  }
-  
-  /* Management groups container */
-  .management-group {
+  #add-service-form {
+    max-width: 500px;
     background-color: #fff;
-    padding: 20px 25px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
-    max-width: 700px;
-    margin-left: 5%; /* Align with form */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   
-  /* Input + button row */
-  .management-group input[type="text"] {
-    padding: 8px 10px;
-    width: calc(100% - 120px);
-    max-width: 300px;
-    margin-right: 10px;
+  #add-service-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+    border-radius: 5px;
   }
   
-  /* Add button style */
-  .management-group button {
-    padding: 9px 16px;
-    background-color: #66CC66;
+  #add-service-form button {
+    background-color: #2c3e50;
     color: white;
+    padding: 10px 15px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
   }
   
-  .management-group button:hover {
-    background-color: #57b557;
+  #serviceList {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
   }
   
-  /* List of added items */
-  .management-group ul {
-    margin-top: 15px;
-    list-style-type: disc;
-    padding-left: 20px;
-    color: #2c3e50;
-    font-size: 14px;
-  }
-  
-  /* Dropdowns in Add Records */
-  select {
-    width: 100%;
-    max-width: 250px;
-    padding: 8px 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+  #serviceList li {
+    background-color: #fff;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-left: 5px solid #66CC66;
+    border-radius: 4px;
   }
   
