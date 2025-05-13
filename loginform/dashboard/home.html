@@ -85,6 +85,7 @@
               <th>Plate No.</th>
               <th>Model</th>
               <th>Services</th>
+              <th>Technician</th>
               <th>Total Amount</th>
               <th>Actions</th>
             </tr>
@@ -97,40 +98,45 @@
       
 
       <!-- Add New Records Section -->
-    <div id="addRecords" class="section">
-      <h2>Add Service Record</h2>
-      <form id="add-record-form">
+      <div id="addRecords" class="section">
+        <h2>Add Service Record</h2>
+        <form id="add-record-form">
 
-        <div class="input-row">
-          <div>
-            <label for="plateNo">Plate No.:</label>
-            <input type="text" id="plateNo" required>
+          <div class="input-row">
+            <div>
+              <label for="plateNo">Plate No.:</label>
+              <input type="text" id="plateNo" required>
+            </div>
+            <div>
+              <label for="model">Model:</label>
+              <input type="text" id="model" required>
+            </div>
+            <div>
+              <label for="technician">Technician:</label>
+              <input type="text" id="technician" required>
+            </div>
           </div>
-          <div>
-            <label for="model">Model:</label>
-            <input type="text" id="model" required>
+
+          <label for="serviceDate">Date of Service:</label>
+          <input type="date" id="serviceDate" required>
+
+          <div id="services-container">
+            <h4>Services Performed:</h4>
+            <div class="service-entry">
+              <input type="text" placeholder="Service" class="service-name">
+              <input type="number" placeholder="Amount" class="service-amount">
+            </div>
           </div>
-        </div>
 
-        <label for="serviceDate">Date of Service:</label>
-        <input type="date" id="serviceDate" required>
-
-        <div id="services-container">
-          <h4>Services Performed:</h4>
-          <div class="service-entry">
-            <input type="text" placeholder="Service" class="service-name">
-            <input type="number" placeholder="Amount" class="service-amount">
+          <div class="buttons-container">
+            <button type="button" id="add-service-btn">+ Add Another Service</button>
+            <button type="button" id="reset-form-btn">Reset Form</button>
+            <button type="submit">Add Records</button>
           </div>
-        </div>
 
-        <div class="buttons-container">
-          <button type="button" id="add-service-btn">+ Add Another Service</button>
-          <button type="button" id="reset-form-btn">Reset Form</button>
-          <button type="submit">Add Records</button>
-        </div>
+        </form>
+      </div>
 
-      </form>
-    </div>
 
       <script src="home.js"></script>
       <script src="addrecords.js" type="module"></script>

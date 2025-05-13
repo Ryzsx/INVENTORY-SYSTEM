@@ -155,6 +155,7 @@ if (addRecordForm) {
     const model = document.getElementById("model").value.trim();
     const serviceDate = document.getElementById("serviceDate").value;
     const serviceNameInputs = document.querySelectorAll(".service-name");
+    const technician = document.getElementById("technician").value.trim();
     const serviceAmountInputs = document.querySelectorAll(".service-amount");
 
     const services = [];
@@ -173,6 +174,7 @@ if (addRecordForm) {
       model,
       serviceDate,
       services,
+      technician,
       totalAmount
     };
 
