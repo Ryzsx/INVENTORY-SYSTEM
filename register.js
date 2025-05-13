@@ -85,7 +85,7 @@ document.getElementById('signin-submit')?.addEventListener('click', async functi
     await signInWithEmailAndPassword(auth, email, password);
     emailInput.value = '';
     passwordInput.value = '';
-    window.location.href = "../loginform/dashboard/home.html";
+    window.location.href = "loginform/dashboard/home.html";
   } catch (error) {
     console.error("Login error:", error);
     const msg = error.code === 'auth/invalid-email'
