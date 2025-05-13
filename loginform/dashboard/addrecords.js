@@ -114,6 +114,7 @@ document.addEventListener("click", async (e) => {
     document.getElementById("plateNo").value = record.plateNo;
     document.getElementById("model").value = record.model;
     document.getElementById("serviceDate").value = record.serviceDate;
+    document.getElementById("technician").value = record.technician;
 
     const container = document.getElementById("services-container");
     container.innerHTML = `<h4>Services Performed:</h4>`;
