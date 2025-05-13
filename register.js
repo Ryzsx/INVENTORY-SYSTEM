@@ -289,7 +289,7 @@ function handleGoogleAuth() {
       }
 
       // Valid sign in or sign up
-      window.location.href = "../loginform/dashboard/home.html";
+      window.location.href = "loginform/dashboard/home.html";
     })
     .catch((error) => {
       if (error.code !== 'auth/cancelled-popup-request' && error.code !== 'auth/popup-closed-by-user') {
