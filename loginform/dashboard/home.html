@@ -86,6 +86,7 @@
               <th>Model</th>
               <th>Services</th>
               <th>Total Amount</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody id="viewRecordsTableBody">
@@ -117,13 +118,14 @@
         <div id="services-container">
           <h4>Services Performed:</h4>
           <div class="service-entry">
-            <input type="text" placeholder="Service" class="service-name" required>
-            <input type="number" placeholder="Amount" class="service-amount" required>
+            <input type="text" placeholder="Service" class="service-name">
+            <input type="number" placeholder="Amount" class="service-amount">
           </div>
         </div>
 
         <div class="buttons-container">
           <button type="button" id="add-service-btn">+ Add Another Service</button>
+          <button type="button" id="reset-form-btn">Reset Form</button>
           <button type="submit">Add Records</button>
         </div>
 
