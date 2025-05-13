@@ -69,13 +69,14 @@ function displayRecords(records, target = "all") {
           <td>${r.plateNo}</td>
           <td>${r.model}</td>
           <td>${r.services.map(s => `${s.name} (₱${s.amount})`).join("<br>")}</td>
-          <td>${r.technician || '-'}</td>
+          <td>${r.technician}</td>
           <td>₱${r.totalAmount}</td>
           <td>
             <button class="edit-btn" data-id="${r.id}">Edit</button>
             <button class="delete-btn" data-id="${r.id}">Delete</button>
           </td>
         `;
+
 
         tableBody.appendChild(row);
       });
