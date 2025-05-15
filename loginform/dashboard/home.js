@@ -19,4 +19,3 @@ function showSection(sectionId, linkElement) {
     linkElement.classList.add('active');
 }
 
-// Make sure this function is called for the correct section (Add Records).

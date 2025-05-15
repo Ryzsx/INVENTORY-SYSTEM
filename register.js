@@ -6,7 +6,8 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  
 } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
 // Firebase Config

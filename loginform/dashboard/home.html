@@ -21,12 +21,9 @@
           <a href="#" onclick="showSection('addRecords', this)">
             <i class="fas fa-plus-square"></i> Add Records
           </a>
-          <a href="#" onclick="showSection('addServices', this)">
-            <i class="fas fa-tools"></i> Workshop Management
-          </a>
-          <a href="#" onclick="showSection('switchAcc', this)">
-            <i class="fa-solid fa-user"></i> Switch Account
-          </a>          
+          <a href="#" onclick="confirmSignOut()">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+          </a>                              
       </div>
     
       <!-- Dashboard Section -->
@@ -142,19 +139,3 @@
 
 </body>
 </html>
-
-<!-- Workshop Management Section 
-<div id="addServices" class="section">
-  <h2>Workshop Management</h2>
-  <form id="add-service-form">
-    <label for="newService">New Service:</label>
-    <input type="text" id="newService" required>
-
-    <button type="submit">Add Service</button>
-  </form>
-
-  <h3>Available Services</h3>
-  <ul id="serviceList">
-    < Dynamically loaded list >
-  </ul>
-</div>-->
