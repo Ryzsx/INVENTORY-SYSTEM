@@ -1,19 +1,19 @@
-/* Ensure sections are properly hidden or shown */
+/* Hide all sections by default, show only active one */
 .section {
-  display: none; /* Hide all sections by default */
+  display: none;
 }
-
 .active-section {
-  display: block; /* Show only the active section */
+  display: block;
 }
 
-/* Add Records section styling */
+/* Main Add Records section */
 #addRecords {
   padding: 30px;
   background-color: #f4f4f4;
-  margin-left: 220px; /* Align it with the sidebar */
-  width: calc(100% - 220px); /* Make room for the sidebar */
+  margin-left: 220px;
+  width: calc(100% - 220px);
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 /* Form container */
@@ -23,23 +23,25 @@ form {
   padding: 25px 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-left: 5%; /* Shift form 35% to the right */
-  margin-top: 30px;
+  margin: 30px auto;
+  box-sizing: border-box;
 }
 
-/* Flex row for Plate No. and Model */
+/* Flex layout for row inputs */
 .input-row {
   display: flex;
   gap: 20px;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-top: 10px;
 }
 
 .input-row > div {
   flex: 1;
+  min-width: 140px;
 }
 
-/* Form label and inputs */
+/* Labels and Inputs */
 form label {
   display: block;
   margin-top: 15px;
@@ -51,90 +53,124 @@ form input[type="text"],
 form input[type="number"],
 form input[type="date"] {
   width: 100%;
-  max-width: 250px;
   padding: 8px 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
-/* Services container spacing */
+/* Services section */
 #services-container {
   margin-top: 20px;
 }
 
-/* Service entries aligned compactly */
 .service-entry {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
 .service-entry input[type="text"],
 .service-entry input[type="number"] {
-  width: 100%;
+  flex: 1;
   padding: 8px;
   font-size: 13px;
 }
 
-/* Add Service button */
-#add-service-btn {
-  margin-top: 20px;
+/* Buttons */
+#add-service-btn,
+#reset-form-btn,
+form button[type="submit"] {
   padding: 10px 20px;
-  background-color: #66CC66;
-  color: white;
   border: none;
   border-radius: 6px;
+  color: white;
   cursor: pointer;
   font-size: 14px;
 }
 
-#reset-form-btn {
+#add-service-btn {
   margin-top: 20px;
-  margin-left: -170px; /* Move button slightly to the left */
-  padding: 10px 20px;
-  background-color: #2c3e50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-#add-service-btn:hover {
-  background-color: #2c3e50;
+  background-color: #66CC66;
 }
 
 #add-service-btn:hover {
   background-color: #57b557;
 }
 
-/* Buttons container with space between */
-.buttons-container {
-  display: flex;
-  justify-content: space-between;
+#reset-form-btn {
   margin-top: 20px;
-}
-
-/* Optional: adjust button widths if needed */
-#add-service-btn,
-form button[type="submit"] {
-  width: auto;
-}
-
-/* Submit button */
-form button[type="submit"] {
-  margin-top: 20px;
-  padding: 10px 20px;
   background-color: #2c3e50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
+}
+
+#reset-form-btn:hover {
+  background-color: #1f2e3a;
+}
+
+form button[type="submit"] {
+  margin-top: 20px;
+  background-color: #2c3e50;
 }
 
 form button[type="submit"]:hover {
   background-color: #1f2e3a;
+}
+
+/* Buttons container (space between if used together) */
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  #addRecords {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #reset-form-btn {
+    margin-left: 0;
+  }
+
+  form {
+    margin: 20px auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+    padding: 15px;
+  }
+
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="date"] {
+    font-size: 13px;
+    padding: 7px;
+  }
+
+  #add-service-btn,
+  #reset-form-btn,
+  form button[type="submit"] {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
 }
