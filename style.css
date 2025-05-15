@@ -1,10 +1,8 @@
-/* General Body Setup */
 body {
   margin: 0;
   padding: 0;
   background: #66CC66;
   font-family: Arial, sans-serif;
-  box-sizing: border-box;
 }
 
 /* Container */
@@ -17,6 +15,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   text-align: center;
+  box-sizing: border-box;
 }
 
 /* Navigation Tabs */
@@ -25,18 +24,18 @@ body {
   justify-content: center;
   margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 5px;
 }
 
 .tab {
   flex: 1;
+  text-align: center;
   padding: 12px;
   font-size: 18px;
   color: #66CC66;
   text-decoration: none;
+  background-color: transparent;
   border-bottom: 2px solid transparent;
-  transition: color 0.3s, border-bottom 0.3s;
-  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .tab:hover {
@@ -44,6 +43,7 @@ body {
 }
 
 .tab.active {
+  background-color: transparent;
   color: #4CAF50;
   font-weight: bold;
   border-bottom: 2px solid #4CAF50;
@@ -51,12 +51,11 @@ body {
 
 /* Form Box */
 .form-box {
+  background: #ffffff;
   padding: 20px 10px;
   border-radius: 0 0 10px 10px;
-  background: #ffffff;
 }
 
-/* Headers */
 h3 {
   text-align: left;
   margin-bottom: 4px;
@@ -87,25 +86,26 @@ h4 {
   position: absolute;
   top: 75%;
   left: 40px;
-  background: #fff;
+  background-color: white;
   padding: 0 5px;
   font-size: 14px;
   color: #66CC66;
   font-weight: bold;
   transform: translateY(-50%);
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .input-group input {
   width: 100%;
   padding: 20px 12px 12px 40px;
   font-size: 16px;
-  color: #000;
+  color: #000000;
   background: #e9f7e1;
   border: 2px solid transparent;
   border-radius: 8px;
   outline: none;
-  transition: border 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .input-group input:focus {
@@ -114,16 +114,11 @@ h4 {
 }
 
 .input-group .toggle-password {
-  position: absolute;
-  top: 70%;
-  right: 12px;
-  transform: translateY(-50%);
+  left: 90%;
   font-size: 18px;
-  color: #66CC66;
   cursor: pointer;
 }
 
-/* Google Button */
 .google-btn {
   display: flex;
   align-items: center;
@@ -131,21 +126,30 @@ h4 {
   gap: 8px;
   width: 100%;
   padding: 12px;
-  background: #66CC66;
+  background-color: #66CC66;
   border: 2px solid #66CC66;
   border-radius: 8px;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
   cursor: pointer;
 }
 
-.google-btn:hover {
-  background: #4CAF50;
+.google-btn i {
+  left: 33%;
+  top: 79%;
+  font-size: 22px;
+  color: #ffffff;
 }
 
 .google-icon {
+  left: 34%;
+  top: 7px;
   font-size: 22px;
   color: #ffffff;
+}
+
+.google-btn:hover {
+  background-color: #4CAF50;
 }
 
 /* Forgot Password */
@@ -164,45 +168,41 @@ h4 {
   text-decoration: underline;
 }
 
-/* Submit Button */
+/* Button */
 button {
   width: 100%;
   padding: 12px;
-  background: #66CC66;
+  background-color: #66CC66;
   border: none;
   border-radius: 8px;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background: #4CAF50;
+  background-color: #4CAF50;
 }
 
-/* Switch Login/Register Links */
 .option-log {
   display: flex;
   flex-direction: row;
+  color: #000000;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
   font-size: 14px;
-  gap: 6px;
-  color: #000;
 }
 
 .option-log a {
   color: #66CC66;
-  text-decoration: none;
 }
 
 .option-log a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 480px) {
   .login-container {
     margin: 40px 16px;
@@ -211,6 +211,7 @@ button:hover {
 
   .nav-tabs {
     flex-direction: column;
+    gap: 10px;
   }
 
   .tab {
@@ -223,14 +224,19 @@ button:hover {
     font-size: 15px;
   }
 
-  .input-group i,
-  .toggle-password {
+  .input-group i {
     font-size: 16px;
+    left: 10px;
   }
 
   .google-btn {
     font-size: 15px;
     padding: 10px;
+  }
+
+  .google-icon {
+    font-size: 20px;
+    top: 6px;
   }
 
   button {
@@ -241,6 +247,7 @@ button:hover {
   .option-log {
     flex-direction: column;
     text-align: center;
+    gap: 5px;
   }
 
   .bottom-links {
