@@ -1,19 +1,21 @@
 body {
   margin: 0;
   padding: 0;
-  background: #66CC66; /* lighter background to complement darker mint green */
+  background: #66CC66;
   font-family: Arial, sans-serif;
 }
 
 /* Container */
 .login-container {
-  width: 400px;
-  margin: 80px auto;
+  width: 90%;
+  max-width: 400px;
+  margin: 60px auto;
   padding: 25px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   text-align: center;
+  box-sizing: border-box;
 }
 
 /* Navigation Tabs */
@@ -21,6 +23,7 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .tab {
@@ -28,22 +31,22 @@ body {
   text-align: center;
   padding: 12px;
   font-size: 18px;
-  color: #66CC66; /* default darker mint green */
+  color: #66CC66;
   text-decoration: none;
-  background-color: transparent; /* no background */
-  border-bottom: 2px solid transparent; /* no underline by default */
+  background-color: transparent;
+  border-bottom: 2px solid transparent;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .tab:hover {
-  color: #4CAF50; /* darker mint green for hover */
+  color: #4CAF50;
 }
 
 .tab.active {
-  background-color: transparent; /* no background on active tab */
-  color: #4CAF50; /* active tab color */
+  background-color: transparent;
+  color: #4CAF50;
   font-weight: bold;
-  border-bottom: 2px solid #4CAF50; /* underline when active */
+  border-bottom: 2px solid #4CAF50;
 }
 
 /* Form Box */
@@ -64,59 +67,55 @@ h4 {
   color: #66CC66;
 }
 
-/* Basic Styles for the Input Group */
+/* Input Group */
 .input-group {
   position: relative;
   margin-bottom: 25px;
 }
 
-/* Icon Styles */
 .input-group i {
   position: absolute;
-  left: 12px; /* Positioning the icon inside the input field */
-  top: 70%; /* Vertically center the icon */
-  transform: translateY(-50%); /* Adjust the positioning to truly center */
-  color: #66CC66; /* Mint green color */
-  font-size: 18px; /* Icon size */
+  left: 12px;
+  top: 70%;
+  transform: translateY(-50%);
+  color: #66CC66;
+  font-size: 18px;
 }
 
-/* Label Styles */
 .input-group label {
   position: absolute;
-  top: 75%; /* Initially center the label in the middle of the input */
-  left: 40px; /* Adjust to prevent overlap with the icon */
-  background-color: white; /* To cover any potential overlap */
-  padding: 0 5px; /* Slight padding around the label for better visual effect */
+  top: 75%;
+  left: 40px;
+  background-color: white;
+  padding: 0 5px;
   font-size: 14px;
-  color: #66CC66; /* Mint green color */
-  font-weight: bold; /* To make it stand out */
-  transform: translateY(-50%); /* Vertically center the label */
-  transition: 0.3s ease; /* Smooth transition when focus occurs */
+  color: #66CC66;
+  font-weight: bold;
+  transform: translateY(-50%);
+  transition: 0.3s ease;
 }
 
-/* Input Styles */
 .input-group input {
   width: 100%;
-  padding: 20px 12px 12px 40px; /* Adding padding on the left for the icon */
+  padding: 20px 12px 12px 40px;
   font-size: 16px;
   color: #000000;
-  background: #e9f7e1; /* Very light green background */
-  border: 2px solid transparent; /* Initially transparent border */
+  background: #e9f7e1;
+  border: 2px solid transparent;
   border-radius: 8px;
   outline: none;
-  box-sizing: border-box; /* Ensures the padding doesn't extend the element's width */
-  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Shorter transition time */
+  box-sizing: border-box;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* On input focus */
 .input-group input:focus {
-  border: 2px solid #33cc33; /* Darker green border on focus */
-  box-shadow: 0 0 8px rgba(51, 204, 51, 0.5); /* Optional: Adds glow effect on focus */
+  border: 2px solid #33cc33;
+  box-shadow: 0 0 8px rgba(51, 204, 51, 0.5);
 }
 
 .input-group .toggle-password {
-  left: 90%; /* Eye icon positioned on the right */
-  font-size: 18px; /* Icon size */
+  left: 90%;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -124,42 +123,43 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Space between icon and text */
+  gap: 8px;
   width: 100%;
   padding: 12px;
-  background-color: #66CC66; /* White background for Google button */
-  border: 2px solid #66CC66; /* Mint green border */
+  background-color: #66CC66;
+  border: 2px solid #66CC66;
   border-radius: 8px;
-  color: #ffffff; /* Black text color */
+  color: #ffffff;
   font-size: 16px;
   cursor: pointer;
 }
 
 .google-btn i {
   left: 33%;
-  top:79%;
+  top: 79%;
   font-size: 22px;
   color: #ffffff;
 }
+
 .google-icon {
   left: 34%;
   top: 7px;
   font-size: 22px;
-  color: #ffffff; 
-
+  color: #ffffff;
 }
+
 .google-btn:hover {
   background-color: #4CAF50;
 }
 
-/* Forgot Password link */
+/* Forgot Password */
 .bottom-links {
   text-align: right;
   margin-bottom: 15px;
 }
 
 .bottom-links a {
-  color: #66CC66; /* darker mint green */
+  color: #66CC66;
   font-size: 14px;
   text-decoration: none;
 }
@@ -172,7 +172,7 @@ h4 {
 button {
   width: 100%;
   padding: 12px;
-  background-color: #66CC66; /* darker mint green */
+  background-color: #66CC66;
   border: none;
   border-radius: 8px;
   color: #ffffff;
@@ -182,16 +182,16 @@ button {
 }
 
 button:hover {
-  background-color: #4CAF50; /* even darker mint green for hover */
+  background-color: #4CAF50;
 }
 
 .option-log {
   display: flex;
-  flex-direction: row; /* Stack vertically */
+  flex-direction: row;
   color: #000000;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
-  margin-top: 20px; /* Optional spacing */
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
   font-size: 14px;
 }
 
@@ -201,4 +201,56 @@ button:hover {
 
 .option-log a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    margin: 40px 16px;
+    padding: 20px;
+  }
+
+  .nav-tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tab {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .input-group input {
+    padding: 16px 12px 12px 38px;
+    font-size: 15px;
+  }
+
+  .input-group i {
+    font-size: 16px;
+    left: 10px;
+  }
+
+  .google-btn {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .google-icon {
+    font-size: 20px;
+    top: 6px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .option-log {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .bottom-links {
+    text-align: center;
+  }
 }
